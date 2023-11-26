@@ -12,6 +12,13 @@ static void tests() {
     assert(bin2dec(10000) == 16);
     assert(bin2dec(10101) == 21);
     printf("bin2dec: All tests have passed!\n");
+
+    //hex2dec tests
+    assert(hex2dec("a") == 10);
+    assert(hex2dec("ab") == 171);
+    assert(hex2dec("12") == 18);
+    assert(hex2dec("2Be") == 702);
+    printf("hex2dec: All tests have passed!\n");
 }
 
 int main(int argc, char* argv[]) {
