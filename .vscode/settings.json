@@ -1,0 +1,12 @@
+{
+    "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
+    "makefile.makefilePath": "makefile",
+    "makefile.makePath": "C:\\ProgramData\\chocolatey\\bin\\make.exe",
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\emili\\Documents\\C Conversions",
+            "binaryPath": "c:\\Users\\emili\\Documents\\C Conversions\\main",
+            "binaryArgs": []
+        }
+    ]
+}
