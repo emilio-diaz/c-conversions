@@ -19,6 +19,14 @@ static void tests() {
     assert(hex2dec("12") == 18);
     assert(hex2dec("2Be") == 702);
     printf("hex2dec: All tests have passed!\n");
+
+    //oct2dec tests
+    assert(oct2dec(1) == 1);
+    assert(oct2dec(12) == 10);
+    assert(oct2dec(102) == 66);
+    assert(oct2dec(1234567) == 342391);
+    printf("oct2dec: All tests have passed!\n");
+    printf("\n");
 }
 
 int main(int argc, char* argv[]) {

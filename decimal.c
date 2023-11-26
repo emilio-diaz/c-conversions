@@ -39,3 +39,15 @@ int hex2dec(char* hex) {
 
     return dec;
 }
+
+int oct2dec(uint64_t oct) {
+    int dec = 0, digit, i = 0;
+
+    while(oct != 0) {
+        digit = oct % 10;
+        dec += digit * pow(8, i);
+        oct = oct / 10;
+        i++;
+    }
+    return dec;
+}
