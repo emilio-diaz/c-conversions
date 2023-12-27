@@ -2,6 +2,7 @@
 #include <inttypes.h>
 #include <math.h>
 #include <string.h>
+#include <ctype.h>
 #include "decimal.h"
 
 int bin2dec(uint64_t bin) {
@@ -49,5 +50,34 @@ int oct2dec(uint64_t oct) {
         oct = oct / 10;
         i++;
     }
+    return dec;
+}
+
+int base2dec(char* num, int base) {
+    int dec = 0, val = 0, i;
+
+    for(i = 0; num[i] != '\0'; i++) {
+        if(isdigit(num[i])) {
+            val = num[i] - '0';
+        }
+        else if(isupper(num[i])) {
+            val = num[i] - 'A' + 10;
+        }
+        else if(islower(num[i])) {
+            val = num[i] - 'a' + 10;
+        }
+        else {
+            val = base + 1;
+        }
+
+        if(val >= base) {
+            printf("Invalid Number...\n");
+            return 0;
+        }
+
+        dec *= base;
+        dec += val;
+    }
+
     return dec;
 }

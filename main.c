@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <inttypes.h>
 #include <assert.h>
+#include <stdbool.h>
+#include <ctype.h>
 
 static void tests() {
     //bin2dec tests
@@ -26,6 +28,12 @@ static void tests() {
     assert(oct2dec(102) == 66);
     assert(oct2dec(1234567) == 342391);
     printf("oct2dec: All tests have passed!\n");
+
+    //base2dec tests
+    assert(base2dec("10",2) == 2);
+    assert(base2dec("12",8) == 10);
+    assert(base2dec("aB9",16) == 2745);
+    printf("base2dec: All tests have passed!\n");
     printf("\n");
 }
 
