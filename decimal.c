@@ -4,6 +4,11 @@
 #include <string.h>
 #include <ctype.h>
 #include "decimal.h"
+#include "arrayops.h"
+
+#define DEBUG 0
+
+// Converting to Decimal Equivalents
 
 int bin2dec(uint64_t bin) {
     int dec = 0, i = 0, digit;
@@ -80,4 +85,62 @@ int base2dec(char* num, int base) {
     }
 
     return dec;
+}
+
+// Converting decimal to base value equivalents
+
+/**
+ * dec2bin - Converts a decimal number into its Binary equivalent
+ * 
+ * @param dec - integer to convert to binary
+ * @param result - dynamically allocated memory for the result to be stored in
+ * @return error codes; <0 - Invalid
+ *                       0 - Valid
+*/
+int dec2bin(uint64_t dec, char* result, int size) {
+    // for the remainer
+    int val = dec;
+    int rem;
+    int i = 0;
+
+    if(dec == 0){
+        result[0] = 0;
+        return 0;
+    }
+    else if(dec < 0){
+        printf("Only positive integers >= 0\n");
+        return -1;
+    }
+    
+
+    if(size == 0){
+        printf("Size of array must be positive > 0\n");
+        return -2;
+    }
+
+    while(val > 0){
+        // Computes remainder (either 0 or 1)
+        rem = val % 2;
+        // Computes quotient of division by 2
+        val = val / 2;
+
+        result[i] = rem;
+
+        if(i >= size){
+            printf("Size of array is invalid to fully convert the requested decimal...\n");
+            return -3;
+        }
+
+        i++;
+    }
+
+    // If pointer array is longer than needed to represent binary number, remaining indices are set
+    // to zero
+    while(i < size){
+        result[i] = 0;
+        i++;
+    }
+
+    return 0;
+    
 }
