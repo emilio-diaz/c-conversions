@@ -3,7 +3,7 @@
 
 #define DEBUG 0
 
-int reverse(int* arr, int size){
+int reverse(char* arr, int size){
     char temp;
     int start = 0;
     int end = (size-1);

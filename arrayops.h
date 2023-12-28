@@ -1,6 +1,6 @@
 #ifndef ARRAYOPS
 #define ARRAYOPS
 
-int reverse(int* arr, int size);
+int reverse(char* arr, int size);
 
 #endif
